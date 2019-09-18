@@ -106,7 +106,8 @@
 			return{
 				time_range_list:this.param.timeRangeList || [1,2,3,4,5,6],
 				time_range:this.param.timeRange || 2,
-				dataTimeLabelPosition:this.param.dataTimeLabelPosition || 'left',
+				dataTimeLabelPosition:this.param.dataTimeLabelPosition || 'right',
+				useLocalTime:typeof(this.useLocalTime) ==='undefined'?true:this.useLocalTime,
 				start:"",
 				end:"",
 				custom_init_start:"",
@@ -160,7 +161,7 @@
 				this.timerange_list_show = true;
 			},
 			init_timerange(){
-				if(this.param.useLocalTime){
+				if(this.useLocalTime){
 					let end_datetime = moment().format('YYYY-MM-DD hh:mm:ss');
 					let start_datetime = this.start_datetime(end_datetime);
 					this.custom_init_start = start_datetime;
@@ -182,7 +183,7 @@
 				}
 			},
 			change_timerange(){
-				if(this.param.useLocalTime){
+				if(this.useLocalTime){
 					this.init_timerange();
 				}else{
 					this.$emit('change-time-range',this.time_range);
