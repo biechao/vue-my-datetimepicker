@@ -25,17 +25,77 @@ The datetime picker is follow boostrap style, but all of the Dependencies has be
 npm install vue-my-datepicker
 
 ## Available props and functions
-| Props/methods          |  Type   | Default | Description
-| :---                   | :----:  |  ----:  |
-| timeRange              | Int     |     2   | The default selected timerange
-| reloadFlag             | Boolean | false   | Used to reload the components, just need change this value to !reloadFlag, then the component will be relaod
-| dataTimeLabelPosition  | String  | right   | where to show the timerange select panel, can be set to left
-| initStart              | String  | null    | The default start time, no need to set if use local mode
-| initEnd                | String  | null    | The default end time, no need to set if use local mode
-| useLocalTime           | Boolean | true    | The default datetime mode of the component
-| locale                 | String  | en_US   | Language of the component, support en_US/zh_CN/en_US
-| select-time-range      | function|N/A      | when use change the timerange inside component, <br>it will return the start time and end time to this function
-| change-time-range      | function|N/A      | When use serve mode and change time range inside the component, this function will renturn <br>current time range, user need to get the datetime in server side by this time range and set start time <br> and end time to the component and trigger reload.
+<table class="custom">
+	<thead>
+		<th>Props/methods</th>
+		<th>Type</th>
+		<th>Default</th>
+		<th>Description</th>
+	</thead>
+	<tbody>
+		<tr>
+			<td>timeRange</td>
+			<td>Int</td>
+			<td>2</td>
+			<td>The default timerange you want to selected</td>
+		</tr>
+		<tr>
+			<td>reloadFlag</td>
+			<td>Boolean</td>
+			<td>false</td>
+			<td>Use to reload the components, only useful for serve mode</td>
+		</tr>
+		<tr>
+			<td>dataTimeLabelPosition</td>
+			<td>String</td>
+			<td>right</td>
+			<td>The position of the custom timerange panel, can set to left</td>
+		</tr>
+		<tr>
+			<td>initStart</td>
+			<td>String</td>
+			<td>null</td>
+			<td>The default start time, only used for serve mode, the format will be ISO format: "2019-09-18 16:55:12"</td>
+		</tr>
+		<tr>
+			<td>initEnd</td>
+			<td>String</td>
+			<td>null</td>
+			<td>The default end time, only used for serve mode, the format will be ISO format: "2019-09-17 16:55:12"</td>
+		</tr>
+		<tr>
+			<td>useLocalTime</td>
+			<td>Boolean</td>
+			<td>true</td>
+			<td>Whether use local time, if use local time,the start time and end time will be caculate within components with javascript.<br/>
+				Set it to false to use serve mode, then you need to get start time and end time from backend server.
+			</td>
+		</tr>
+		<tr>
+			<td>locale</td>
+			<td>String</td>
+			<td>en_US</td>
+			<td>The language of this component, support en_US/zh_CN/ja_JP
+			</td>
+		</tr>		
+		<tr>
+			<td>select-time-range</td>
+			<td>function</td>
+			<td>N/A</td>
+			<td>
+				When user change the timerange inside the component, then this function will return start time and end time to user.
+			</td>
+		</tr>
+		<tr>
+			<td>change-time-range</td>
+			<td>function</td>
+			<td>N/A</td>
+			<td>
+				Only use for serve mode, if user change time range inside component, this function will return current timerange to user to <br/>get start time and end time from bakend server.
+			</td>
+		</tr>
+	</tbody>
+</table>
 
 
 ## Code Examples
