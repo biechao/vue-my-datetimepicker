@@ -1,6 +1,6 @@
 {
   "name": "vue-my-datepicker",
-  "version": "0.1.7",
+  "version": "1.0.0",
   "private": false,
   "description": "this is a datetime picker for VUE",
   "main": "lib/vueMyDatepicker.umd.js",
@@ -15,8 +15,8 @@
     "type": "git",
     "url": "https://github.com/biechao/vue-my-datetimepicker"
   },
-  "license":"MIT",
-  "author": "biechao(毛毛)",  
+  "license": "MIT",
+  "author": "biechao(毛毛)",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.22",
     "@fortawesome/free-regular-svg-icons": "^5.10.2",
@@ -32,7 +32,8 @@
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
     "vue": "^2.6.10",
-    "vue-clickaway": "^2.2.2"
+    "vue-clickaway": "^2.2.2",
+    "vue-i18n": "^8.14.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.11.0",

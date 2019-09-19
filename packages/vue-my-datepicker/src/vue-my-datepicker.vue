@@ -45,8 +45,8 @@
 	                    <div class="date-picker-pane-container date-pane-date-end"></div>
 	                </div>
 	                <div class="date-picker-pane-footer">
-	                    <button type="button" class="btn btn-apply">Apply</button>
-	                    <button type="button" class="btn btn-cancel">Cancel</button>
+	                    <button type="button" class="btn btn-apply">{{$t("apply")}}</button>
+	                    <button type="button" class="btn btn-cancel">{{$t("cancel")}}</button>
 	                </div>
 	            </div>
 	            <ul class="dropdown-menu">
@@ -64,6 +64,8 @@
 </template>
 <script>
 	import Vue from 'vue'
+	import VueI18n from 'vue-i18n'
+	Vue.use(VueI18n)
 	import { library } from '@fortawesome/fontawesome-svg-core'
 	import { faCalendarAlt,faClock } from '@fortawesome/free-regular-svg-icons'
 	import { faSortDown,faChevronLeft,faChevronRight } from '@fortawesome/free-solid-svg-icons'
@@ -80,6 +82,41 @@
 	library.add(faCalendarAlt,faClock,faSortDown,faChevronLeft,faChevronRight);
 	export default{
 		name:"vueMyDatepicker",
+		i18n:{
+		  locale: 'zh_CN',
+			messages: {
+			  en_US: {
+			    apply:"Apply",
+			    cancel:"Cancel",
+			    past_4_hours:"Last 4 hours",
+			    past_24_hours:"Last 24 hours",
+			    past_7_days:"Last 7 days",
+			    past_30_days:"Last 30 days",
+			    past_90_days:"Last 90 days",
+			    custom_range:"Custom range",
+			  },
+			  ja_JP: {
+			    apply:"適用",
+			    cancel:"キャンセル",
+			    past_4_hours:"過去4時間",
+			    past_24_hours:"過去24時間",
+			    past_7_days:"過去7日間",
+			    past_30_days:"過去30日間",
+			    past_90_days:"過去90日間",
+			    custom_range:"カスタム範囲",
+			  },
+			  zh_CN: {
+			    apply:"确认",
+			    cancel:"取消",
+			    past_4_hours:"过去4小时",
+			    past_24_hours:"过去24小时",
+			    past_7_days:"过去7天",
+			    past_30_days:"过去30天",
+			    past_90_days:"过去90天",
+			    custom_range:"自定义时间段",
+			  }			  
+			}
+		},
 		directives: {
 			onClickaway: onClickaway,
 		},		
@@ -94,13 +131,11 @@
 						initStart:"",
 						initEnd:"",
 						disabled:false,
-						useLocalTime:false//use localtime instead of from backend service
+						useLocalTime:false,//use localtime instead of from backend service,
+						locale:"en_US"
 					}
 				}
 			}
-		},
-		mounted:function(){
-			this.init();
 		},
 		data:function (){
 			return{
@@ -117,7 +152,8 @@
 				today:"",
 				is_disabled:this.param.disabled || false,
 				timerange_list_show:false,
-				custom_range_panel_show:false
+				custom_range_panel_show:false,
+				locale:this.param.locale || "en_US"
 			}
 		},
 		computed:{
@@ -130,25 +166,25 @@
 				switch(range)
 				{
 					case 1:
-					 return  "Last 4 hours";
+					 return  this.$t("past_4_hours");
 					 break;
 					case 2:
-					 return  "Last 24 hours";
+					 return  this.$t("past_24_hours");
 					 break;
 					case 3:
-					 return  "Last 7 days";
+					 return  this.$t("past_7_days");
 					 break;
 					case 4:
-					 return  "Last 30 days";
+					 return  this.$t("past_30_days");
 					 break;
 					case 5:
-					 return  "Last 90 days";
+					 return  this.$t("past_90_days");
 					 break;
 					case 6:
-					 return  "Custom range";
+					 return  this.$t("custom_range");
 					 break;
 					default:
-					 return  "Last 4 hours";
+					 return  this.$t("past_4_hours");
 				}
 			},
 			hide_timerange_list(){
@@ -249,7 +285,7 @@
 					autoclose: true,
 					format: 'yyyy-mm-dd',
 					keyboardNavigation: false,
-					language:"en_US"
+					language:this.locale
 				}).off('changeDate changeMonth changeTime').on('changeDate changeMonth changeTime', function (e) {
 					var selectedDate = moment($(this).data('date'));
 					var endDate = datePickerPaneEnd.data('date');
@@ -269,7 +305,7 @@
 					autoclose: true,
 					format: 'yyyy-mm-dd',
 					keyboardNavigation: false,
-					language:"en_US"
+					language:this.locale
 				}).off('changeDate changeMonth').on('changeDate changeMonth', function (e) {
 					var selectedDate = moment($(this).data('date'));
 					var startDate = datePickerPaneStart.data('date');
@@ -359,6 +395,10 @@
 					e.stopPropagation();
 				});				
 			}
+		},
+		mounted(){
+			this._i18n.locale = this.locale;
+			this.init();
 		},
 		watch:{
 			"param.reloadFlag":function(){

@@ -11,6 +11,28 @@
       then do whatever you want.
       </div>
     </div>
+    <div class="demo">
+      <div class="demo_label">中文:</div> 
+      <div class="demo_picker">
+        <vueMyDatepicker :param="local_param_cn" v-on:select-time-range="customerSelectTimeRange"></vueMyDatepicker>
+      </div>
+      <div class="demo_notes">
+        If you use local datetime, the component will calculate the start time and end time by time range you selected.
+      You only need to listen on the event "selet-time-range" to get the start time and end time return from the component and
+      then do whatever you want.
+      </div>
+    </div>
+    <div class="demo">
+      <div class="demo_label">日本語:</div> 
+      <div class="demo_picker">
+        <vueMyDatepicker :param="local_param_jp" v-on:select-time-range="customerSelectTimeRange"></vueMyDatepicker>
+      </div>
+      <div class="demo_notes">
+        If you use local datetime, the component will calculate the start time and end time by time range you selected.
+      You only need to listen on the event "selet-time-range" to get the start time and end time return from the component and
+      then do whatever you want.
+      </div>
+    </div>        
     <br/>
     <br/>
     <div class="demo">
@@ -61,6 +83,24 @@ export default {
         initEnd:"2019-09-16 05:43:10",
         useLocalTime:true      
       },
+      local_param_cn:{
+        timeRange: 1,
+        reloadFlag: false,
+        dataTimeLabelPosition: 'right',
+        initStart:"2019-09-16 01:43:10",
+        initEnd:"2019-09-16 05:43:10",
+        useLocalTime:true,
+        locale:"zh_CN"     
+      },
+      local_param_jp:{
+        timeRange: 1,
+        reloadFlag: false,
+        dataTimeLabelPosition: 'right',
+        initStart:"2019-09-16 01:43:10",
+        initEnd:"2019-09-16 05:43:10",
+        useLocalTime:true,
+        locale:"ja_JP"     
+      },            
       sever_param:{
         timeRange: 1,
         reloadFlag: false,

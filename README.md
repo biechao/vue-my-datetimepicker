@@ -17,6 +17,8 @@ The datetime picker is follow boostrap style, but all of the Dependencies has be
 
 ## Screenshots
 ![Example screenshot](https://raw.githubusercontent.com/biechao/vue-my-datetimepicker/master/img/screenshot.png)
+![Example screenshot](https://raw.githubusercontent.com/biechao/vue-my-datetimepicker/master/img/screenshot_CN.png)
+![Example screenshot](https://raw.githubusercontent.com/biechao/vue-my-datetimepicker/master/img/screenshot_JP.png)
 
 
 ## Setup
@@ -30,9 +32,11 @@ npm install vue-my-datepicker
 | dataTimeLabelPosition  | String  | right   | where to show the timerange select panel, can be set to left
 | initStart              | String  | null    | The default start time, no need to set if use local mode
 | initEnd                | String  | null    | The default end time, no need to set if use local mode
-| useLocalTime           | Boolean | true   | The default datetime mode of the component
+| useLocalTime           | Boolean | true    | The default datetime mode of the component
+| locale                 | String  | en_US   | Language of the component, support en_US/zh_CN/en_US
 | select-time-range      | function|N/A      | when use change the timerange inside component, <br>it will return the start time and end time to this function
 | change-time-range      | function|N/A      | When use serve mode and change time range inside the component, this function will renturn <br>current time range, user need to get the datetime in server side by this time range and set start time <br> and end time to the component and trigger reload.
+
 
 ## Code Examples
 Show examples of usage, for more example please refer to [github](https://biechao.github.io/2019/09/17/how%20to%20use%20vue-my-datepicker/)
@@ -41,10 +45,13 @@ Show examples of usage, for more example please refer to [github](https://biecha
 Support local and serve datetime
 * Local: use client datetime, the component will caculate the start time and end time in javascript
 * Serve: use serve side datetime, you can provide start and end time to the component
+Support three languages: 
+* en_US
+* zh_CN
+* ja_JP
 
 To-do list:
-* I18N support
-* anything wonderful
+* Anything wonderful
 
 ## Status
 Init version for now
