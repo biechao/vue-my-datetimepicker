@@ -1,6 +1,6 @@
 {
   "name": "vue-my-datepicker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "description": "this is a datetime picker for VUE",
   "main": "lib/vueMyDatepicker.umd.js",

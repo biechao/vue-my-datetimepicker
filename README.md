@@ -1,5 +1,6 @@
 # vue-my-datepicker
-> This is a datetimepicker for vue project
+> This is a datetimepicker library follow boostrap style for vue, you can use it in vue project and via script tag directly.
+> Support fixed and custom timerange and three lauguages.
 
 ## Table of contents
 * [General info](#general-info)
@@ -13,7 +14,7 @@
 * [Licence](#licence)
 
 ## General info
-The datetime picker is follow boostrap style, but all of the Dependencies has been resolve in this components, you do not to install any other library anymore.
+The datetime picker is follow boostrap style, but all of the dependencies has been resolved in this components, you do not need to install any other library anymore.
 
 ## Screenshots
 ![Example screenshot](https://raw.githubusercontent.com/biechao/vue-my-datetimepicker/master/img/screenshot.png)
@@ -23,6 +24,12 @@ The datetime picker is follow boostrap style, but all of the Dependencies has be
 
 ## Setup
 npm install vue-my-datepicker
+Or use script tag directly
+```
+<script src="vue.js"> </script>
+<script src="vueMyDatepicker.umd.js"></script>
+<link rel="stylesheet" type="text/css" href="vueMyDatepicker.css">
+```
 
 ## Available props and functions
 <table class="custom">
@@ -99,7 +106,7 @@ npm install vue-my-datepicker
 
 
 ## Code Examples
-Show examples of usage, for more example please refer to [github](https://biechao.github.io/2019/09/17/how%20to%20use%20vue-my-datepicker/)
+For examples please refer to [github](https://biechao.github.io/2019/09/17/how%20to%20use%20vue-my-datepicker/)
 
 ## Features
 Support local and serve datetime
@@ -114,7 +121,7 @@ To-do list:
 * Anything wonderful
 
 ## Status
-Init version for now
+Stable version
 
 ## Inspiration
 The component is based on [bootstrap datetimepicker](http://www.eyecon.ro/bootstrap-datepicker)
