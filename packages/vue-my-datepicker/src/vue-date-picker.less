@@ -262,7 +262,7 @@
     border: 1px solid #bbbbbb;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   }
-  .custom-wrapper > ul.dropdown-menu {
+  .custom-wrapper > ul.dropdown-list {
     position: static; 
     padding:0;
     margin:10px 0;
@@ -315,7 +315,10 @@
       height: 14px;
       width:14px;
       vertical-align: middle;
-      margin-left: 4px; 
+      margin-left: 4px;
+      &:before{
+        content:"";
+      }
       &.fa-angle-left{
         background:url("./left.svg") no-repeat;     
       }
@@ -349,7 +352,7 @@
     margin-top: 12px;
     text-align: left;
   }
-  .dropdown > .custom-wrapper > ul.dropdown-menu {
+  .dropdown > .custom-wrapper > ul.dropdown-list {
     display: inline-block;
     border: 0;
     box-shadow: none;

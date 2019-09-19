@@ -49,7 +49,7 @@
 	                    <button type="button" class="btn btn-cancel">{{$t("cancel")}}</button>
 	                </div>
 	            </div>
-	            <ul class="dropdown-menu">
+	            <ul class="dropdown-list">
 	                <template v-for="item in time_range_list">
 	                    <li><a :data="item" :class='{"predefine-range":item != 6,"custom-range":item==6}' href="javascript:;">{{time_range_display(item)}}</a></li>
 	                </template>
@@ -82,7 +82,7 @@
 	library.add(faCalendarAlt,faClock,faSortDown,faChevronLeft,faChevronRight);
 	export default{
 		name:"vueMyDatepicker",
-		i18n:{
+		i18n:new VueI18n({
 		  locale: 'zh_CN',
 			messages: {
 			  en_US: {
@@ -116,7 +116,7 @@
 			    custom_range:"自定义时间段",
 			  }			  
 			}
-		},
+		}),
 		directives: {
 			onClickaway: onClickaway,
 		},		
